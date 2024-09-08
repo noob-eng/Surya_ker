@@ -1,0 +1,55 @@
+	default y if DOCKER
+	depends on DOCKER
+	help
+		Yes if you use secure networks
+
+	select XFRM_ALGO
+	select XFRM_USER
+
+
+config DOCKER_AUFS
+	bool "Use aufs"
+	default y if DOCKER
+	depends on DOCKER
+	help
+		Yes if you are using aufs
+
+	select AUFS_FS
+	select EXT4_FS_POSIX_ACL
+	select EXT4_FS_SECURITY
+
+config DOCKER_BTRFS
+	bool "Use btrfs"
+	default y
+	depends on DOCKER
+	help
+		Yes if you are using btrfs
+
+	select BTRFS_FS
+	select BTRFS_FS_POSIX_ACL
+
+config DOCKER_DEVICE_MAPPER
+	bool "Device Mapper support"
+	default y if DOCKER
+	depends on DOCKER
+	help
+		Yes if you want support for device mapper (recommended)
+
+	select BLK_DEV_DM
+	select DM_THIN_PROVISIONING
+	select EXT4_FS
+	select EXT4_FS_POSIX_ACL
+	select EXT4_FS_SECURITY
+
+config DOCKER_OVERLAY_FS
+	bool "Use overlay FS"
+	default y
+	depends on DOCKER
+	help
+		Yes if want to use the Overlay FS (recommended)
+
+	select OVERLAY_FS
+	select EXT4_FS_SECURITY
+	select EXT4_FS_POSIX_ACL
+
+endmenu
