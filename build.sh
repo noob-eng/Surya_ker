@@ -44,7 +44,7 @@ fi
 
 echo 'source "utils/Kconfig"' >> ./Kconfig
 patch -p1 < Cgroup.patch
-bash SGconfig.sh arch/arm64/configs/surya_defconfig -w
+#bash SGconfig.sh arch/arm64/configs/surya_defconfig -w
 echo "CONFIG_DOCKER=y" >> arch/arm64/configs/surya_defconfig
 
 if [[ $1 = "-c" || $1 = "--clean" ]]; then
