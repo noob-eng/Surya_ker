@@ -43,10 +43,10 @@ if [[ $1 = "-rf" || $1 = "--regen-full" ]]; then
 fi
 
 #echo 'source "utils/Kconfig"' >> ./Kconfig
-patch -p1 < Cgroup.patch
-bash SGconfig.sh arch/arm64/configs/surya_defconfig -w
+#patch -p1 < Cgroup.patch
+#bash SGconfig.sh arch/arm64/configs/surya_defconfig -w
 #echo "CONFIG_DOCKER=y" >> arch/arm64/configs/surya_defconfig
-sudo apt install zstd
+#
 
 if [[ $1 = "-c" || $1 = "--clean" ]]; then
 	rm -rf out
